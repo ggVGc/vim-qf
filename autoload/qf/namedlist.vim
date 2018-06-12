@@ -25,9 +25,10 @@ let s:last_saved_list = ''
 function! qf#namedlist#SaveList(add, name) abort
     if a:name == ''
         if s:last_saved_list == ''
-            echomsg 'No last saved list'
-            return
+            echomsg "No last saved list. Using '_'"
+            let s:last_saved_list = '_'
         endif
+
         let curname = s:last_saved_list
     else
         let curname           = a:name
